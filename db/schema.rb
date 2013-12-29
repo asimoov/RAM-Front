@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131218140804) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "causes", force: true do |t|
     t.string   "disease"
     t.integer  "cid_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.datetime "updated_at"
   end
 
-  add_index "causes", ["cid_id"], name: "index_causes_on_cid_id"
-  add_index "causes", ["research_id"], name: "index_causes_on_research_id"
+  add_index "causes", ["cid_id"], name: "index_causes_on_cid_id", using: :btree
+  add_index "causes", ["research_id"], name: "index_causes_on_research_id", using: :btree
 
   create_table "cids", force: true do |t|
     t.string   "code"
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.integer "hospital_id"
   end
 
-  add_index "hospitals_users", ["hospital_id"], name: "index_hospitals_users_on_hospital_id"
-  add_index "hospitals_users", ["user_id"], name: "index_hospitals_users_on_user_id"
+  add_index "hospitals_users", ["hospital_id"], name: "index_hospitals_users_on_hospital_id", using: :btree
+  add_index "hospitals_users", ["user_id"], name: "index_hospitals_users_on_user_id", using: :btree
 
   create_table "medications", force: true do |t|
     t.string   "name"
@@ -75,8 +78,8 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.datetime "updated_at"
   end
 
-  add_index "researches", ["cause_id"], name: "index_researches_on_cause_id"
-  add_index "researches", ["hospital_id"], name: "index_researches_on_hospital_id"
+  add_index "researches", ["cause_id"], name: "index_researches_on_cause_id", using: :btree
+  add_index "researches", ["hospital_id"], name: "index_researches_on_hospital_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "",    null: false
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

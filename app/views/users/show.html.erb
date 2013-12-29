@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Admin:</strong>
+  <%= @user.admin %>
+</p>
+
+<p>
   <strong>Hospitals:</strong>
   <%= @user.hospitals.map(&:name).join(", ") %>
 </p>

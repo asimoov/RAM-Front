@@ -47,10 +47,103 @@
     <%= f.label :bed %><br>
     <%= f.number_field :bed %>
   </div>
+
   <div class="field">
     <%= f.label :admission %><br>
     <%= f.date_select :admission %>
   </div>
+
+  <div class="field">
+    <%= f.label :etilismo %><br>
+    <%= f.text_field :etilismo %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Tempo Etilismo" %><br>
+    <%= f.text_field :tempoEtilismo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tabagismo %><br>
+    <%= f.text_field :tabagismo %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Tempo Tabagismo" %><br>
+    <%= f.text_field :tempoTabagismo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gravity %><br>
+    <%= f.text_field :gravity %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Plantas Medicinais" %><br>
+    <%= f.text_field :plantasMedicinais %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Reacoes Adversas" %><br>
+    <%= f.text_field :reacoesAdversas %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sequels %><br>
+    <%= f.text_field :sequels %>
+  </div>
+
+  <div class="field">
+    <%= f.label :treatment %><br>
+    <%= f.text_field :treatment %>
+  </div>
+
+  <div class="field">
+    <%= f.label "exposicao Previa" %><br>
+    <%= f.text_field :exposicaoPrevia %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desenvolveuReacao %><br>
+    <%= f.text_field :desenvolveuReacao %>
+  </div>
+  <div class="field">
+    <%= f.label :usaCocaina %><br>
+    <%= f.text_field :usaCocaina %>
+  </div>
+    <div class="field">
+    <%= f.label :usaCrack %><br>
+    <%= f.text_field :usaCrack %>
+  </div>
+    <div class="field">
+    <%= f.label :usaLSD %><br>
+    <%= f.text_field :usaLSD %>
+  </div>
+    <div class="field">
+    <%= f.label :usaMaconha %><br>
+    <%= f.text_field :usaMaconha %>
+  </div>
+    <div class="field">
+    <%= f.label :anotherLocation %><br>
+    <%= f.text_field :anotherLocation %>
+  </div>
+    <div class="field">
+    <%= f.label "Naranjo" %><br>
+    <%= f.text_field :algNaranjo %>
+  </div>
+    <div class="field">
+    <%= f.label :algOMS %><br>
+    <%= f.text_field :algOMS %>
+  </div>
+    <div class="field">
+    <%= f.label :algRUCAM %><br>
+    <%= f.text_field :algRUCAM %>
+  </div>
+    <div class="field">
+    <%= f.label :algUE %><br>
+    <%= f.text_field :algUE %>
+  </div>
+
   <div class="field">
     <%= f.label :hospital %><br>
     <%= f.collection_select :hospital_id, Hospital.all, :id, :name, {}, {} %>

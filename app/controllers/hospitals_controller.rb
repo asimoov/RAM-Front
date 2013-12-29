@@ -6,7 +6,7 @@ class HospitalsController < ApplicationController
   # GET /hospitals
   # GET /hospitals.json
   def index
-    @hospitals = Hospital.all
+    @hospitals = current_user.hospitals
   end
 
   # GET /hospitals/1

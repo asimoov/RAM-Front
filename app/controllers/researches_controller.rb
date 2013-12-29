@@ -1,4 +1,5 @@
 class ResearchesController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
   before_action :set_research, only: [:show, :edit, :update, :destroy]
   before_action :load_research, only: :create
   load_and_authorize_resource

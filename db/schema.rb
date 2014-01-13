@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218140804) do
+ActiveRecord::Schema.define(version: 20140112222041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,11 +57,29 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.string   "indication"
     t.date     "start"
     t.date     "end"
+    t.integer  "research_id"
+    t.integer  "ram_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "medications", ["ram_id"], name: "index_medications_on_ram_id", using: :btree
+  add_index "medications", ["research_id"], name: "index_medications_on_research_id", using: :btree
+
+  create_table "rams", force: true do |t|
+    t.string   "cid"
+    t.string   "cause"
+    t.string   "comorbidity"
+    t.string   "otherCauses"
+    t.date     "initial"
+    t.date     "final"
+    t.integer  "research_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "researches", force: true do |t|
+    t.string   "cid"
     t.string   "handbook"
     t.string   "name"
     t.string   "cns"
@@ -95,14 +113,14 @@ ActiveRecord::Schema.define(version: 20131218140804) do
     t.string   "algOMS"
     t.string   "algRUCAM"
     t.string   "algUE"
+    t.integer  "ram_id"
     t.integer  "hospital_id"
-    t.integer  "cause_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "researches", ["cause_id"], name: "index_researches_on_cause_id", using: :btree
   add_index "researches", ["hospital_id"], name: "index_researches_on_hospital_id", using: :btree
+  add_index "researches", ["ram_id"], name: "index_researches_on_ram_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "",    null: false

@@ -8,6 +8,9 @@ class CreateMedications < ActiveRecord::Migration
       t.date :start
       t.date :end
 
+      t.references :research, index: true
+      t.references :ram, index: true
+      
       t.timestamps
     end
   end

@@ -1,6 +1,7 @@
 class CreateResearches < ActiveRecord::Migration
   def change
     create_table :researches do |t|
+      t.string :cid
       t.string :handbook
       t.string :name
       t.string :cns
@@ -40,8 +41,8 @@ class CreateResearches < ActiveRecord::Migration
       t.string :algRUCAM
       t.string :algUE
 
+      t.references :ram, index: true
       t.references :hospital, index: true
-      t.references :cause, index: true
 
       t.timestamps
     end

@@ -1,46 +1,46 @@
-<h1>Listing researches</h1>
+<h1>Pesquisas</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Handbook</th>
-      <th>Name</th>
+      <th>Prontuário</th>
+      <th>Nome</th>
       <th>Cns</th>
-      <th>Sex</th>
-      <th>Weight</th>
-      <th>Height</th>
-      <th>Color</th>
+      <th>Sexo</th>
+      <th>Peso</th>
+      <th>Altura</th>
+      <th>Cor</th>
       <th>Unit</th>
-      <th>Bed</th>
-      <th>Admission</th>
+      <th>Leito</th>
+      <th>Data de Admissão</th>
       <th>Hospital</th>
       <th>Ram</th>
       <th>Medications</th>
 
-      <th>etilismo</th>
-      <th>tempoEtilismo</th>
+      <th>Consumo de Etilismo</th>
+      <th>Tempo de Etilismo</th>
 
-      <th>tabagismo</th>
-      <th>tempoTabagismo</th>
+      <th>Consumo de Tabagismo</th>
+      <th>Tempo de Tabagismo</th>
 
-      <th>gravity</th>
-      <th>plantasMedicinais</th>
-      <th>reacoesAdversas</th>
-      <th>sequels</th>
+      <th>Gravidade</th>
+      <th>Plantas Medicinais</th>
+      <th>Reacães Adversas</th>
+      <th>Sequelas</th>
 
-      <th>treatment</th>
-      <th>exposicaoPrevia</th>
-      <th>desenvolveuReacao</th>
-      <th>usaCocaina</th>
-      <th>usaCrack</th>
-      <th>usaLSD</th>
-      <th>usaMaconha</th>
+      <th>Tratamento</th>
+      <th>Exposiço Previa</th>
+      <th>Desenvolveu Reação</th>
+      <th>usa Cocaina</th>
+      <th>usa Crack</th>
+      <th>usa LSD</th>
+      <th>usa Maconha</th>
       <th>anotherLocation</th>
 
-      <th>algNaranjo</th>
-      <th>algOMS</th>
-      <th>algRUCAM</th>
-      <th>algUE</th>
+      <th>Algoritmo Naranjo</th>
+      <th>Algoritmo OMS</th>
+      <th>Algoritmo RUCAM</th>
+      <th>Algoritmo UE</th>
 
       <th></th>
       <th></th>
@@ -90,8 +90,8 @@
         <td><%= research.algRUCAM %></td>
         <td><%= research.algUE %></td>
         <td><%= link_to 'Show', research %></td>
-        <td><%= link_to 'Edit', edit_research_path(research) %></td>
-        <td><%= link_to 'Destroy', research, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_research_path(research) %></td>
+        <td><%= link_to 'Deleta', research, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -99,6 +99,5 @@
 
 <br>
 
-<%= link_to 'New Research', new_research_path %><br>
 <%= link_to 'Excel Research', action: :excel, format: :xls %>
 

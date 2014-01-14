@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140112222041) do
   create_table "hospitals", force: true do |t|
     t.string   "name"
     t.string   "acronym"
-    t.string   "country"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

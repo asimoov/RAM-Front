@@ -1,11 +1,11 @@
-<h1>Listing Users</h1>
+<h1>Usuarios</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nome</th>
       <th>Email</th>
-      <th>Admin</th>
+      <th>Administrador</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,8 +19,8 @@
         <td><%= user.email %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Deletar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Novo Usuario', new_user_path %>

@@ -6,9 +6,25 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+	<body>
 
-<%= yield %>
+		<header>
+			<h1>Admissão Hospitalar por RAM</h1>
+			<% if user_signed_in? %>
+			<nav class="menu">
+				<ul>
+					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Hospitais', hospitals_path %></li>
+					<li><%= link_to 'Usuarios', users_path %></li>
+					<li><%= link_to 'Pesquisas', researches_path %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+				</ul>
+			</nav>
+			<% end %>
+		</header>
+		<section>
+			<%= yield %>
+		</section>
 
-</body>
+	</body>
 </html>

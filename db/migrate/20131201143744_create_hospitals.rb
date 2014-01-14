@@ -3,7 +3,7 @@ class CreateHospitals < ActiveRecord::Migration
     create_table :hospitals do |t|
       t.string :name
       t.string :acronym
-      t.string :country
+      t.string :city
 
       t.timestamps
     end

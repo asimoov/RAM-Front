@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 20140112222041) do
   add_index "causes", ["cid_id"], name: "index_causes_on_cid_id", using: :btree
   add_index "causes", ["research_id"], name: "index_causes_on_research_id", using: :btree
 
-  create_table "cids", force: true do |t|
-    t.string   "code"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "hospitals", force: true do |t|
     t.string   "name"
     t.string   "acronym"
@@ -57,29 +50,26 @@ ActiveRecord::Schema.define(version: 20140112222041) do
     t.string   "indication"
     t.date     "start"
     t.date     "end"
-    t.integer  "research_id"
+    t.string   "research_id"
     t.integer  "ram_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "medications", ["ram_id"], name: "index_medications_on_ram_id", using: :btree
-  add_index "medications", ["research_id"], name: "index_medications_on_research_id", using: :btree
 
   create_table "rams", force: true do |t|
-    t.string   "cid"
     t.string   "cause"
     t.string   "comorbidity"
     t.string   "otherCauses"
     t.date     "initial"
     t.date     "final"
-    t.integer  "research_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "researches", force: true do |t|
-    t.string   "cid"
+  create_table "researches", id: false, force: true do |t|
+    t.string   "id",                null: false
     t.string   "handbook"
     t.string   "name"
     t.string   "cns"

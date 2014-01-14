@@ -2,6 +2,7 @@ class ResearchesController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   before_action :set_research, only: [:show, :edit, :update, :destroy]
   before_action :load_research, only: :create
+
   load_and_authorize_resource
 
   # GET /researches
@@ -27,6 +28,10 @@ class ResearchesController < ApplicationController
   # POST /researches
   # POST /researches.json
   def create
+    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :final, :initial, :otherCauses))
+    @research.ram.suspects.build(params["ram"]["suspects"])
+    @research.medications.build(params["medications"])
+
     respond_to do |format|
       if @research.save
         format.html { redirect_to @research, notice: 'Research was successfully created.' }
@@ -41,6 +46,10 @@ class ResearchesController < ApplicationController
   # PATCH/PUT /researches/1
   # PATCH/PUT /researches/1.json
   def update
+    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :final, :initial, :otherCauses))
+    @research.ram.suspects.build(params["ram"]["suspects"])
+    @research.medications.build(params["medications"])
+
     respond_to do |format|
       if @research.update(research_params)
         format.html { redirect_to @research, notice: 'Research was successfully updated.' }
@@ -81,6 +90,6 @@ class ResearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def research_params
-      params.require(:research).permit(:handbook, :name, :cns, :sex, :weight, :height, :color, :unit, :bed, :admission, :hospital_id, :cause_id, :etilismo,:tempoEtilismo,:tabagismo,:tempoTabagismo,:gravity,:plantasMedicinais,:reacoesAdversas,:sequels,:treatment,:exposicaoPrevia,:desenvolveuReacao,:usaCocaina,:usaCrack,:usaLSD,:usaMaconha,:anotherLocation,:algNaranjo,:algOMS,:algRUCAM,:algUE)
+      params.require(:research).permit(:id, :birthday, :handbook, :name, :cns, :sex, :weight, :height, :color, :unit, :bed, :admission, :hospital_id, :cause_id, :etilismo, :tempoEtilismo, :tabagismo, :tempoTabagismo, :gravity, :plantasMedicinais, :reacoesAdversas, :sequels, :treatment, :exposicaoPrevia, :desenvolveuReacao, :usaCocaina, :usaCrack, :usaLSD, :usaMaconha, :anotherLocation, :algNaranjo, :algOMS, :algRUCAM, :algUE)
     end
 end

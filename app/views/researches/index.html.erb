@@ -14,7 +14,8 @@
       <th>Bed</th>
       <th>Admission</th>
       <th>Hospital</th>
-      <th>Cause</th>
+      <th>Ram</th>
+      <th>Medications</th>
 
       <th>etilismo</th>
       <th>tempoEtilismo</th>
@@ -60,8 +61,10 @@
         <td><%= research.unit %></td>
         <td><%= research.bed %></td>
         <td><%= research.admission %></td>
-        <td><%= research.hospital %></td>
-        <td><%= research.cause %></td>
+        <td><%= research.hospital.name %></td>
+        <td><%= research.ram %></td>
+        <td><%= research.medications.length %></td>
+
         <th><%= research.etilismo %></th>
         <td><%= research.tempoEtilismo %></td>
 

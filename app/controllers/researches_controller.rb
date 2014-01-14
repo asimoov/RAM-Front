@@ -8,7 +8,7 @@ class ResearchesController < ApplicationController
   # GET /researches
   # GET /researches.json
   def index
-    @researches = Research.all
+    @researches = Research.where(:hospital_id => current_user.hospitals.map(&:id))
   end
 
   # GET /researches/1

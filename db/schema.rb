@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20140112222041) do
     t.string   "cause"
     t.string   "comorbidity"
     t.string   "otherCauses"
-    t.date     "initial"
-    t.date     "final"
+    t.date     "start"
+    t.date     "end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -4,8 +4,8 @@ class CreateRams < ActiveRecord::Migration
       t.string :cause 
       t.string :comorbidity 
       t.string :otherCauses
-      t.date :initial
-      t.date :final 
+      t.date :start
+      t.date :end
 
       t.timestamps
   	end

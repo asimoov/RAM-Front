@@ -33,29 +33,33 @@ json.array!(@researches) do |research|
   json.algRUCAM research.algRUCAM
   json.algUE research.algUE
 
-  json.ram research.ram do |ram|
-  	json.cause ram.cause
-  	json.comorbidity ram.comorbidity
-  	json.end ram.end
-  	json.otherCauses ram.otherCauses
-  	json.start ram.start
-  	json.suspects @ram.suspects do |suspect| 
-  		json.dose suspect.dose
-  		json.end suspect.end
-  		json.indication suspect.indication
-  		json.name suspect.name
-  		json.start suspect.start
-  		json.way suspect.way
-  	end
-  end
   json.medications research.medications do |medication|
-	json.dose suspect.dose
-	json.end suspect.end
-	json.indication suspect.indication
-	json.name suspect.name
-	json.start suspect.start
-	json.way suspect.way
+  	json.dose medication.dose
+  	json.end medication.end
+  	json.indication medication.indication
+  	json.name medication.name
+  	json.start medication.start
+  	json.way medication.way
   end
 
+  json.ram do
+    json.cause research.ram.cause
+    json.comorbidity research.ram.comorbidity
+    json.end research.ram.end
+    json.otherCauses research.ram.otherCauses
+    json.start research.ram.start
+    json.suspects research.ram.suspects do |suspect| 
+      json.dose suspect.dose
+      json.end suspect.end
+      json.indication suspect.indication
+      json.name suspect.name
+      json.start suspect.start
+      json.way suspect.way
+    end
+  end
+
+  json.updatedAt research.updated_at
+  json.createdAt research.created_at
+  
   json.url research_url(research, format: :json)
 end

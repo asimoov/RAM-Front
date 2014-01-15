@@ -90,6 +90,6 @@ class ResearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def research_params
-      params.require(:research).permit(:id, :birthday, :handbook, :name, :cns, :sex, :weight, :height, :color, :unit, :bed, :admission, :hospital_id, :cause_id, :etilismo, :tempoEtilismo, :tabagismo, :tempoTabagismo, :gravity, :plantasMedicinais, :reacoesAdversas, :sequels, :treatment, :exposicaoPrevia, :desenvolveuReacao, :usaCocaina, :usaCrack, :usaLSD, :usaMaconha, :anotherLocation, :algNaranjo, :algOMS, :algRUCAM, :algUE)
+      params.require(:research).permit(:id, :birthday, :handbook, :name, :cns, :sex, :weight, :height, :color, :unit, :bed, :admission, :hospital_id, :etilismo, :tempoEtilismo, :tabagismo, :tempoTabagismo, :gravity, :plantasMedicinais, :reacoesAdversas, :sequels, :treatment, :exposicaoPrevia, :desenvolveuReacao, :usaCocaina, :usaCrack, :usaLSD, :usaMaconha, :anotherLocation, :algNaranjo, :algOMS, :algRUCAM, :algUE)
     end
 end

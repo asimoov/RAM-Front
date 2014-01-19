@@ -58,8 +58,8 @@ json.array!(@researches) do |research|
     end
   end
 
-  json.updatedAt research.updated_at
-  json.createdAt research.created_at
+  json.updatedAt research.updated_at.to_s
+  json.createdAt research.created_at.to_s
   
   json.url research_url(research, format: :json)
 end

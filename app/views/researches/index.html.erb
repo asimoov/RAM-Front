@@ -41,10 +41,6 @@
       <th>Algoritmo OMS</th>
       <th>Algoritmo RUCAM</th>
       <th>Algoritmo UE</th>
-
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -70,14 +66,39 @@
               <th>Outras cousas</th>
               <th>Inicio</th>
               <th>Fim</th>
+              <th>Suspeitos</th>
             </thead>
             <tbody>
               <tr>
                 <td><%= research.ram.cause %></td>
                 <td><%= research.ram.comorbidity %></td>
                 <td><%= research.ram.otherCauses %></td>
-                <td><%= l research.ram.start unless research.ram.start.nil? %></td>
-                <td><%= l research.ram.end unless research.ram.end.nil? %></td>
+                <td><%= l research.ram.start  %></td>
+                <td><%= l research.ram.end %></td>
+                <td>
+                  <table>
+                    <thead>
+                      <th>name</th>
+                      <th>way</th>
+                      <th>dose</th>
+                      <th>indication</th>
+                      <th>start</th>
+                      <th>end</th>
+                    </thead>
+                    <tbody>
+                      <% research.ram.suspects.each do |medication| %>
+                      <tr>
+                        <td><%= medication.name %></td>
+                        <td><%= medication.way %></td>
+                        <td><%= medication.dose %></td>
+                        <td><%= medication.indication %></td>
+                        <td><%= l medication.start %></td>
+                        <td><%= l medication.end %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </td>
             </tbody>
           </table>
         </td>
@@ -106,7 +127,7 @@
           </table>
         </td>
 
-        <th><%= research.etilismo %></th>
+        <td><%= research.etilismo %></td>
         <td><%= research.tempoEtilismo %></td>
 
         <td><%= research.tabagismo %></td>
@@ -130,7 +151,6 @@
         <td><%= research.algOMS %></td>
         <td><%= research.algRUCAM %></td>
         <td><%= research.algUE %></td>
-        <td><%= link_to 'Show', research %></td>
       </tr>
     <% end %>
   </tbody>

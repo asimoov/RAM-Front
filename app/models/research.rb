@@ -8,5 +8,5 @@ class Research < ActiveRecord::Base
   has_many :medications, dependent: :destroy
 
   accepts_nested_attributes_for :ram
-  accepts_nested_attributes_for :medications, :allow_destroy => true
+  accepts_nested_attributes_for :medications
 end

@@ -1,6 +1,6 @@
 json.array!(@researches) do |research|
   json.id research.id
-  json.birthday research.birthday
+  json.birthday l research.birthday
   json.handbook research.handbook
   json.name research.name
   json.cns research.cns
@@ -10,7 +10,7 @@ json.array!(@researches) do |research|
   json.color research.color
   json.unit research.unit
   json.bed research.bed
-  json.admission research.admission
+  json.admission l research.admission
   json.hospital_id research.hospital_id
   json.etilismo research.etilismo
   json.tempoEtilismo research.tempoEtilismo
@@ -34,27 +34,27 @@ json.array!(@researches) do |research|
   json.algUE research.algUE
 
   json.medications research.medications do |medication|
+    json.name medication.name
+    json.way medication.way
   	json.dose medication.dose
-  	json.end medication.end
   	json.indication medication.indication
-  	json.name medication.name
-  	json.start medication.start
-  	json.way medication.way
+  	json.start l medication.start
+    json.end l medication.end
   end
 
   json.ram do
     json.cause research.ram.cause
     json.comorbidity research.ram.comorbidity
-    json.end research.ram.end
     json.otherCauses research.ram.otherCauses
-    json.start research.ram.start
+    json.start l research.ram.start unless research.ram.start.nil?
+    json.end l research.ram.end unless research.ram.start.nil?
     json.suspects research.ram.suspects do |suspect| 
-      json.dose suspect.dose
-      json.end suspect.end
-      json.indication suspect.indication
       json.name suspect.name
-      json.start suspect.start
       json.way suspect.way
+      json.dose suspect.dose
+      json.indication suspect.indication
+      json.end l suspect.end
+      json.start l suspect.start
     end
   end
 

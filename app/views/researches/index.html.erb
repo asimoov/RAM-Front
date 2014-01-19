@@ -62,8 +62,49 @@
         <td><%= research.bed %></td>
         <td><%= research.admission %></td>
         <td><%= research.hospital.name %></td>
-        <td><%= research.ram %></td>
-        <td><%= research.medications.length %></td>
+        <td>
+          <table>
+            <thead>
+              <th>Causa</th>
+              <th>Comobidade</th>
+              <th>Outras cousas</th>
+              <th>Inicio</th>
+              <th>Fim</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= research.ram.cause %></td>
+                <td><%= research.ram.comorbidity %></td>
+                <td><%= research.ram.otherCauses %></td>
+                <td><%= research.ram.start %></td>
+                <td><%= research.ram.end %></td>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <table>
+            <thead>
+              <th>name</th>
+              <th>way</th>
+              <th>dose</th>
+              <th>indication</th>
+              <th>start</th>
+              <th>end</th>
+            </thead>
+            <tbody>
+              <% research.medications.each do |medication| %>
+              <tr>
+                <td><%= medication.name %></td>
+                <td><%= medication.way %></td>
+                <td><%= medication.dose %></td>
+                <td><%= medication.indication %></td>
+                <td><%= medication.start %></td>
+                <td><%= medication.end %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </td>
 
         <th><%= research.etilismo %></th>
         <td><%= research.tempoEtilismo %></td>

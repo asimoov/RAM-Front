@@ -28,7 +28,7 @@ class ResearchesController < ApplicationController
   # POST /researches
   # POST /researches.json
   def create
-    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :final, :initial, :otherCauses))
+    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses))
     @research.ram.suspects.build(params["ram"]["suspects"])
     @research.medications.build(params["medications"])
 
@@ -46,7 +46,7 @@ class ResearchesController < ApplicationController
   # PATCH/PUT /researches/1
   # PATCH/PUT /researches/1.json
   def update
-    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :final, :initial, :otherCauses))
+    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses))
     @research.ram.suspects.build(params["ram"]["suspects"])
     @research.medications.build(params["medications"])
 

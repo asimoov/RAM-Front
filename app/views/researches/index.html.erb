@@ -60,7 +60,7 @@
         <td><%= research.color %></td>
         <td><%= research.unit %></td>
         <td><%= research.bed %></td>
-        <td><%= research.admission %></td>
+        <td><%= l research.admission %></td>
         <td><%= research.hospital.name %></td>
         <td>
           <table>
@@ -76,8 +76,8 @@
                 <td><%= research.ram.cause %></td>
                 <td><%= research.ram.comorbidity %></td>
                 <td><%= research.ram.otherCauses %></td>
-                <td><%= research.ram.start %></td>
-                <td><%= research.ram.end %></td>
+                <td><%= l research.ram.start unless research.ram.start.nil? %></td>
+                <td><%= l research.ram.end unless research.ram.end.nil? %></td>
             </tbody>
           </table>
         </td>
@@ -98,8 +98,8 @@
                 <td><%= medication.way %></td>
                 <td><%= medication.dose %></td>
                 <td><%= medication.indication %></td>
-                <td><%= medication.start %></td>
-                <td><%= medication.end %></td>
+                <td><%= l medication.start %></td>
+                <td><%= l medication.end %></td>
               </tr>
               <% end %>
             </tbody>
@@ -131,8 +131,6 @@
         <td><%= research.algRUCAM %></td>
         <td><%= research.algUE %></td>
         <td><%= link_to 'Show', research %></td>
-        <td><%= link_to 'Editar', edit_research_path(research) %></td>
-        <td><%= link_to 'Deleta', research, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

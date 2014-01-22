@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Nº Registro</th>
       <th>Prontuário</th>
       <th>Nome</th>
-      <th>Cns</th>
       <th>Sexo</th>
       <th>Peso</th>
       <th>Altura</th>
@@ -15,7 +15,7 @@
       <th>Data de Admissão</th>
       <th>Hospital</th>
       <th>Ram</th>
-      <th>Medications</th>
+      <th>Medicamentos</th>
 
       <th>Consumo de Etilismo</th>
       <th>Tempo de Etilismo</th>
@@ -47,9 +47,9 @@
   <tbody>
     <% @researches.each do |research| %>
       <tr>
+        <td><%= research.id %></td>
         <td><%= research.handbook %></td>
         <td><%= research.name %></td>
-        <td><%= research.cns %></td>
         <td><%= research.sex %></td>
         <td><%= research.weight %></td>
         <td><%= research.height %></td>

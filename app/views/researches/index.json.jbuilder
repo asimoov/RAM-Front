@@ -38,8 +38,8 @@ json.array!(@researches) do |research|
     json.way medication.way
   	json.dose medication.dose
   	json.indication medication.indication
-  	json.start l medication.start
-    json.end l medication.end
+  	json.start l medication.start unless medication.start.nil?
+    json.end l medication.end unless medication.start.nil?
   end
 
   json.ram do

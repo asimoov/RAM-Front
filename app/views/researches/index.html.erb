@@ -119,8 +119,8 @@
                 <td><%= medication.way %></td>
                 <td><%= medication.dose %></td>
                 <td><%= medication.indication %></td>
-                <td><%= l medication.start %></td>
-                <td><%= l medication.end %></td>
+                <td><%= l medication.start unless medication.start.nil? %></td>
+                <td><%= l medication.end unless medication.end.nil? %></td>
               </tr>
               <% end %>
             </tbody>

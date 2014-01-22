@@ -4,36 +4,93 @@
   xmlns:x="urn:schemas-microsoft-com:office:excel"
   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:html="http://www.w3.org/TR/REC-html40">
-  <Worksheet ss:Name="Sheet1">
+  <Styles>
+    <Style ss:ID="s21">
+      <Font x:Family="Swiss" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="researches">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">Handbook</Data></Cell>
-        <Cell><Data ss:Type="String">Name</Data></Cell>
-        <Cell><Data ss:Type="String">Cns</Data></Cell>
-        <Cell><Data ss:Type="String">Sex</Data></Cell>
-        <Cell><Data ss:Type="String">Weight</Data></Cell>
-        <Cell><Data ss:Type="String">Height</Data></Cell>
-        <Cell><Data ss:Type="String">Color</Data></Cell>
-        <Cell><Data ss:Type="String">Unit</Data></Cell>
-        <Cell><Data ss:Type="String">Bed</Data></Cell>
-        <Cell><Data ss:Type="String">Admission</Data></Cell>
-        <Cell><Data ss:Type="String">Hospital</Data></Cell>
-        <Cell><Data ss:Type="String">Cause</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">id</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Prontuário</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Nome</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Cns</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Sex</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Peso</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Altura</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Cor</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Unidade</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Leito</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Data de Admissão</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Hospital</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Ram</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Medications</Data></Cell>
+
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Consumo de Etilismo</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Tempo de Etilismo</Data></Cell>
+
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Consumo de Tabagismo</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Tempo de Tabagismo</Data></Cell>
+
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Gravidade</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Plantas Medicinais</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Reacães Adversas</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Sequelas</Data></Cell>
+
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Tratamento</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Exposiço Previa</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Desenvolveu Reação</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Usa Cocaina</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Usa Crack</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Usa LSD</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Usa Maconha</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Outro local</Data></Cell>
+
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Algoritmo Naranjo</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Algoritmo OMS</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Algoritmo RUCAM</Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="String">Algoritmo UE</Data></Cell>
       </Row>
     <% @researches.each do |research| %>
       <Row>
-        <Cell><Data ss:Type="Number"><%= research.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.handbook %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.cns %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.sex %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.weight %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.height %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.color %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.unit %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.bed %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.admission %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.hospital %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= research.cause %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.sex %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.weight %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.height %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.color %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.bed %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.admission %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.hospital.name %></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.etilismo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.tempoEtilismo %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= research.tabagismo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.tempoTabagismo %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= research.gravity %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.plantasMedicinais %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.reacoesAdversas %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.sequels %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= research.treatment %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.exposicaoPrevia %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.desenvolveuReacao %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.usaCocaina %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.usaCrack %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.usaLSD %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.usaMaconha %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.anotherLocation %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= research.algNaranjo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.algOMS %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.algRUCAM %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= research.algUE %></Data></Cell>
       </Row>
     <% end %>
     </Table>

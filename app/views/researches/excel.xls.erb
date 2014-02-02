@@ -163,7 +163,7 @@
       </Row>
     <% @researches.each do |research| %>
         <% suspects = research.ram.suspects %>
-        <% medications = research.medications %>
+        <% medications = research.medications || [] %>
       <Row>
         <Cell><Data ss:Type="String"><%= research.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.handbook %></Data></Cell>

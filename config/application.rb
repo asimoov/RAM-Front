@@ -21,7 +21,6 @@ module Frontserver
     # config.i18n.default_locale = :de
     
     config.time_zone = 'Brasilia'
-    config.active_record.default_timezone = :local
-
+    #config.active_record.default_timezone = :local
   end
 end

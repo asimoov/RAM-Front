@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20140112222041) do
     t.string   "reacoesAdversas"
     t.string   "result"
     t.string   "sequels"
-    t.string   "status"
+    t.integer  "status"
     t.string   "treatment"
     t.string   "exposicaoPrevia"
     t.string   "desenvolveuReacao"

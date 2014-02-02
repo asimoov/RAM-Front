@@ -30,7 +30,7 @@ class ResearchesController < ApplicationController
   def create
     @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
     @research.ram.suspects.build(params["ram"]["suspects"])
-    @research.medications.build(params["medications"])
+    @research.medications.build(params["medications"]) unless params["medications"].nil?
 
     respond_to do |format|
       if @research.save
@@ -46,12 +46,12 @@ class ResearchesController < ApplicationController
   # PATCH/PUT /researches/1
   # PATCH/PUT /researches/1.json
   def update
+    @research.medications.destroy_all
     @research.ram.destroy
-    @research.medications.destroy
 
     @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
     @research.ram.suspects.build(params["ram"]["suspects"])
-    @research.medications = Research.new.medications.build(params["medications"])
+    @research.medications = Research.new.medications.build(params["medications"]) unless params["medications"].nil?
 
     respond_to do |format|
       if @research.update(research_params)

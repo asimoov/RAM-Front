@@ -25,7 +25,7 @@ class CreateResearches < ActiveRecord::Migration
       t.string :reacoesAdversas
       t.string :result
       t.string :sequels
-      t.string :status
+      t.integer :status
 
       t.string :treatment
       t.string :exposicaoPrevia

@@ -32,6 +32,7 @@ json.array!(@researches) do |research|
   json.algOMS research.algOMS
   json.algRUCAM research.algRUCAM
   json.algUE research.algUE
+  json.status research.status
 
   json.medications research.medications do |medication|
     json.name medication.name

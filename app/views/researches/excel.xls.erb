@@ -162,6 +162,8 @@
         <Cell ss:StyleID="s21"></Cell>
       </Row>
     <% @researches.each do |research| %>
+        <% suspects = research.ram.suspects %>
+        <% medications = research.medications %>
       <Row>
         <Cell><Data ss:Type="String"><%= research.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.handbook %></Data></Cell>
@@ -181,19 +183,25 @@
         <Cell><Data ss:Type="String"><%= l research.ram.start  %></Data></Cell>
         <Cell><Data ss:Type="String"><%= l research.ram.end %></Data></Cell>
 
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
+        <% if(suspects.size > 0) %>
+            <% suspect = suspects[0] %>
+            <Cell><Data ss:Type="String"><%= suspect.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.way %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.dose %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.indication %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= l suspect.start %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= l suspect.end %></Data></Cell>
+        <% end %>
 
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data></Cell>
+        <% if(medications.size > 0) %>
+            <% suspect = medications[0] %>
+            <Cell><Data ss:Type="String"><%= suspect.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.way %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.dose %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= suspect.indication %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= l suspect.start %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= l suspect.end %></Data></Cell>
+        <% end %>
 
         <Cell><Data ss:Type="String"><%= research.etilismo %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.tempoEtilismo %></Data></Cell>
@@ -220,6 +228,85 @@
         <Cell><Data ss:Type="String"><%= research.algRUCAM %></Data></Cell>
         <Cell><Data ss:Type="String"><%= research.algUE %></Data></Cell>
       </Row>
+      <% max = [suspects.size, medications.size].max %>
+      <% (1...max).each do |i| %>
+          <Row>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <% suspect = suspects[i] %>
+            <% unless(suspect.nil?) %>
+                <Cell><Data ss:Type="String"><%= suspect.name %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.way %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.dose %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.indication %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= l suspect.start %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= l suspect.end %></Data></Cell>
+            <% else %>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+            <% end %>
+
+            <% suspect = medications[i] %>
+            <% unless(suspect.nil?) %>
+                <Cell><Data ss:Type="String"><%= suspect.name %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.way %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.dose %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= suspect.indication %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= l suspect.start %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= l suspect.end %></Data></Cell>
+            <% else %>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+                <Cell ss:StyleID="s21"></Cell>
+            <% end %>
+
+            <Cell ss:StyleID="s21"></Cell>
+
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+            <Cell ss:StyleID="s21"></Cell>
+          </Row>
+      <% end %>
     <% end %>
     </Table>
   </Worksheet>

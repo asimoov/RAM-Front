@@ -8,6 +8,12 @@ class CreateMedications < ActiveRecord::Migration
       t.date :start
       t.date :end
 
+      # Plantas
+      t.string :usage
+      t.string :part
+      t.string :get
+      t.string :preparation
+
       t.string :research_id, index: true
       t.references :ram, index: true
       

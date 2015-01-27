@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
   before_action :load_user, only: :create
+
   load_and_authorize_resource
 
   # GET /hospitals

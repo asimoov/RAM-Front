@@ -4,4 +4,15 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
 
   protect_from_forgery with: :exception
+
+  protected
+
+	def require_no_authentication
+		p 'ooooooooooooo'
+		if current_user.admin?
+			return true
+		else
+			return super
+		end
+	end
 end

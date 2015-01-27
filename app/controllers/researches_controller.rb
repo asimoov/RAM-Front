@@ -28,11 +28,20 @@ class ResearchesController < ApplicationController
   # POST /researches
   # POST /researches.json
   def create
-    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
-    @research.ram.suspects.build(params["ram"]["suspects"])
-    @research.medications.build(params["medications"]) unless params["medications"].nil?
+    ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
+
+    suspects = params["ram"]["suspects"].each { |suspect| suspect.delete :plant }
+    ram.suspects.build(suspects)
+
+    medications = []
+    unless params["medications"].nil?
+      medications = params["medications"].each { |suspect| suspect.delete :plant }
+      medications = Research.new.medications.build(params["medications"])
+    end
 
     respond_to do |format|
+      @research.ram = ram
+      @research.medications = medications
       if @research.save
         format.html { redirect_to @research, notice: 'Research was successfully created.' }
         format.json { render action: 'show', status: :created, location: @research }
@@ -46,14 +55,23 @@ class ResearchesController < ApplicationController
   # PATCH/PUT /researches/1
   # PATCH/PUT /researches/1.json
   def update
-    @research.medications.destroy_all
-    @research.ram.destroy
+    ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
 
-    @research.ram = Ram.new(params.require(:ram).permit(:cause, :comorbidity, :start, :end, :otherCauses, :suspects))
-    @research.ram.suspects.build(params["ram"]["suspects"])
-    @research.medications = Research.new.medications.build(params["medications"]) unless params["medications"].nil?
+    suspects = params["ram"]["suspects"].each { |suspect| suspect.delete :plant }
+    ram.suspects.build(suspects)
+
+    medications = []
+    unless params["medications"].nil?
+      medications = params["medications"].each { |suspect| suspect.delete :plant }
+      medications = Research.new.medications.build(params["medications"])
+    end
 
     respond_to do |format|
+      @research.medications.destroy_all
+      @research.ram.destroy
+
+      @research.ram = ram
+      @research.medications = medications
       if @research.update(research_params)
         format.html { redirect_to @research, notice: 'Research was successfully updated.' }
         format.json { head :no_content }

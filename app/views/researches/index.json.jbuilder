@@ -21,13 +21,13 @@ json.array!(@researches) do |research|
   json.reacoesAdversas research.reacoesAdversas
   json.sequels research.sequels
   json.treatment research.treatment
-  json.exposicaoPrevia research.exposicaoPrevia
-  json.desenvolveuReacao research.desenvolveuReacao
-  json.usaCocaina research.usaCocaina
-  json.usaCrack research.usaCrack
-  json.usaLSD research.usaLSD
-  json.usaMaconha research.usaMaconha
-  json.anotherLocation research.anotherLocation
+  json.exposicaoPrevia true if(research.exposicaoPrevia != 'f')
+  json.desenvolveuReacao true if(research.desenvolveuReacao != 'f')
+  json.usaCocaina true if(research.usaCocaina != 'f')
+  json.usaCrack true if(research.usaCrack != 'f')
+  json.usaLSD true if(research.usaLSD != 'f')
+  json.usaMaconha true if(research.usaMaconha != 'f')
+  json.anotherLocation true if(research.anotherLocation != 'f')
   json.algNaranjo research.algNaranjo
   json.algOMS research.algOMS
   json.algRUCAM research.algRUCAM
@@ -48,14 +48,14 @@ json.array!(@researches) do |research|
     json.comorbidity research.ram.comorbidity
     json.otherCauses research.ram.otherCauses
     json.start l research.ram.start unless research.ram.start.nil?
-    json.end l research.ram.end unless research.ram.start.nil?
+    json.end l research.ram.end unless research.ram.end.nil?
     json.suspects research.ram.suspects do |suspect| 
       json.name suspect.name
       json.way suspect.way
       json.dose suspect.dose
       json.indication suspect.indication
-      json.end l suspect.end
-      json.start l suspect.start
+      json.end l suspect.end unless suspect.end.nil?
+      json.start l suspect.start unless suspect.start.nil?
     end
   end
 

@@ -23,7 +23,7 @@
     <%= f.label :admin %><br>
     <%= f.check_box :admin %>
   </div>
-  <% if current_page? action: :new %>
+  <% if current_page?(action: :new) || params[:password] == 'true' %>
     <div class="field">
       <%= f.label :password %><br>
       <%= f.password_field :password %>
@@ -32,6 +32,8 @@
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation %>
     </div>
+  <% else %>
+    <div class="field"><%= link_to 'Password', edit_user_path(@user, :password => true) %></div>
   <% end %>
   </div>
   <div class="field">
